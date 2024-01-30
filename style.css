@@ -44,6 +44,7 @@ h1{
 
 h2{
   text-align: center;
+  font-size:12px;
   opacity: 0;
   color: white;
   font-family: 'Cascadia Code', monospace;
@@ -243,6 +244,13 @@ h2{
     font-size: 3.5rem;
 }
 
+p1{ 
+font-size: 16px 
+
+
+
+}
+
 .Title-sub{
     font-size: 1.7rem;
 }
@@ -284,6 +292,7 @@ h2{
     text-align: center; /* Center text horizontally */
     margin: 0 auto;    /* Center the container horizontally */
     max-width: 800px;  /* Adjust the max-width to your desired value */
+    font-size: 18px; 
   }
 
 
@@ -398,8 +407,179 @@ button {
 
 
 
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Cascadia Code', monospace;
+}
+.timeline ul {
+  padding: 50px 0;
+}
+.timeline ul li {
+  background: #39FF14;
+  position: relative;
+  margin: 0 auto;
+  width: 5px;
+  padding-bottom: 40px;
+  list-style-type: none;
+}
+.timeline ul li:last-child {
+  padding-bottom: 7px;
+}
+.timeline ul li:before {
+  content: "";
+  background: #faf8eb;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid #39FF14;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.timeline ul li .hidden {
+  opacity: 0;
+}
+.timeline ul li .content {
+  background: #67CC8E;
+  position: relative;
+  top: 7px;
+  width: 450px;
+  padding: 20px;
+  transition: all 0.4s ease-in-out;  
+  z-index: 14;
+  box-shadow: 7px 6px 15px 0px rgba(0,0,0,0.25);
+}
+.timeline ul li .content *{
+    color: #fff;
+}
+/* ***************** non vosible elements ***************** */
+.timeline ul li .content.non-focus::before{
+    display: none;
+}
+.timeline ul li .content.non-focus{
+    transform: rotate(20deg);
+    opacity: 0.4;
+    filter: blur(5px);
+    z-index: 11;
+}
+/* ***************** non vosible elements ***************** */
+
+.timeline ul li .content {
+    color: #d2d2d2;
+    background: #e6e6e6;
+}
+.timeline ul li .content p {
+  text-align: left;
+}
+.timeline ul li .content:before {
+  content: "";
+  background: inherit;
+  position: absolute;
+  top: 0px;
+  width: 38px;
+  height: 5px;
+}
+.timeline ul li:nth-child(odd) .content {
+  left: 50px;
+  background: #01016f;
+  border-radius: 0px 4px 4px 4px;
+}
+.timeline ul li:nth-child(odd) .content:before {
+  left: -38px;
+}
+.timeline ul li:nth-child(even) .content {
+  left: calc(-450px - 45px);
+  background: #01016f;
+  border-radius: 4px 0px 4px 4px;
+}
+.timeline ul li:nth-child(even) .content:before {
+  right: -38px;
+}
+/* **** custom css*/
+.timeline-content-info{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    padding: 2%;
+    background-color: #6497bf;
+}
+.content-skills{
+    margin: 15px 0px 0px 0px;
+}
+.content-skills span{
+    background: #39FF14;
+    border-radius: 4px;
+    padding: 2px;
+}
+/*****************/
+/* -------------------------
+   ----- Media Queries ----- 
+   ------------------------- */
+@media screen and (max-width: 1020px) {
+  .timeline ul li .content {
+    width: 41vw;
+  }
+
+  .timeline ul li:nth-child(even) .content {
+    left: calc(-41vw - 45px);
+  }
+}
+@media screen and (max-width: 700px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li .content {
+    width: calc(100vw - 100px);
+  }
+  .timeline ul li:nth-child(even) .content {
+    left: 45px;
+    background: #01016f;
+    border-radius: 0px 4px 4px 4px;
+  }
+  .timeline ul li:nth-child(even) .content:before {
+    left: -33px;
+  }
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Experince */ 
 :root {
   --timelineWidth: calc(300px * 2 + 1rem * 4 + 2.5rem * 2);
   --timelineProgressWidth: 3px;
@@ -409,7 +589,6 @@ button {
   --timelineItemPadding: 1rem;
   --timelineItemDistance: 3rem;
 }
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -417,37 +596,32 @@ button {
 body {
   background: black;
 }
-
 ul, ol {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
-
 a {
   text-decoration: none;
 }
-
 .experience {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
-
 .experience__heading {
-  padding: 8rem 0;
-}
+  padding: 3rem 0;
+  font-size: large;
 
+}
 .timeline {
   position: relative;
   padding: 4rem 0;
 }
-
 .timeline::before {
   content: '';
   position: absolute;
@@ -460,7 +634,6 @@ a {
   transform: translate(-50%);
   z-index: -1;
 }
-
 .timeline__item {
   position: relative;
   background: black;
@@ -469,7 +642,6 @@ a {
   max-width: var(--timelineItemMaxWidth);
   border-radius: 10px;
 }
-
 .timeline__item::before {
   content: "";
   position: absolute;
@@ -482,19 +654,20 @@ a {
   background: #39FF14;
   border-radius: 50%;
 }
-
 .timeline__time {
   color: gray;
   font-size: 17px;
 }
-
 .timeline__heading {
-  font-size: 1rem;
+  font-size: 30px;
   line-height: 1.7;
 }
-
-.timeline__paragraph {}
-
+h3{ 
+  font-size: 22px;
+}
+.timeline__paragraph {
+  font-size: 17px; 
+}
 @media (min-width: 900px) {
   .timeline {
     font-size: 2rem;
@@ -504,23 +677,19 @@ a {
       justify-content: center;
       flex-direction: column;
   }
-
   .timeline::before {
       transform: none;
       left: auto;
       margin: 0;
   }
-
   .timeline__item {
       left: 50%;
       transform: translate(-50%);
   }
-
   .timeline__item:nth-child(even) {
       left: -50%;
       transform: translate(50%);
   }
-
   .timeline__item:nth-child(even)::before {
       left: auto;
       right: 0;
@@ -529,29 +698,20 @@ a {
       margin-right: calc(var(--timelineNodeDistance) * -1);
   }
 }
-
 py{
   color: white;
   font-family: 'Cascadia Code', monospace;
   font-size:15px;
-
-
 }
-
-
 .timeline__heading {
-  font-size: 0.8rem; /* Smaller font size */
+  font-size: 22px; /* Smaller font size */
   line-height: 1.2;  /* Adjust line height for readability */
 }
-
 p9{
-
   font-size: 20px;
-
 }
-
 .container {
-  width: 300px; /* Set the width of the container */
+  width: 330px; /* Set the width of the container */
   margin: auto; /* This keeps the container centered */
   padding: 10px; /* Optional padding inside the container */
   border: 1px solid #000; /* Optional border to visualize the container */
@@ -562,6 +722,13 @@ p9{
 .container p {
   text-align: left; /* Aligns the text to the left within the container */
 }
+
+
+
+
+
+
+
 
 
 .l-Footer {
@@ -586,15 +753,7 @@ p9{
 }
 
 
-body {
-  background: #000;
-}
-canvas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 
 
 
