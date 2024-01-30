@@ -78,6 +78,9 @@ function toggleEducation() {
 
 
 
+// Background effects
+var low = 2; // Commit test 
+
 
 var pow = Math.pow,
 sqrt = Math.sqrt,
