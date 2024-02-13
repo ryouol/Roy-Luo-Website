@@ -245,7 +245,7 @@ h2{
 }
 
 p1{ 
-font-size: 16px 
+font-size: 16px
 
 
 
@@ -510,6 +510,7 @@ body {
 }
 /* **** custom css*/
 .timeline-content-info{
+  font-size: 20px;
     display: flex;
     justify-content: space-between;
     border-radius: 4px;
@@ -520,7 +521,7 @@ body {
     margin: 15px 0px 0px 0px;
 }
 .content-skills span{
-    background: #39FF14;
+  font-size: 15px;
     border-radius: 4px;
     padding: 2px;
 }
@@ -754,6 +755,12 @@ p9{
 
 
 
+desc{
+  font-size: 15px;
+  colour: white;
+  font-family: 'Cascadia Code', monospace;
+
+}
 
 
 
